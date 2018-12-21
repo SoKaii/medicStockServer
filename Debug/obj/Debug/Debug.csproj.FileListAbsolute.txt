@@ -11,3 +11,9 @@ D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.csprojAssemblyReference.cache
 D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.csproj.CoreCompileInputs.cache
 D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.exe
 D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.pdb
+D:\Desktop\Git\medicStockServer\Debug\bin\Debug\Debug.exe.config
+D:\Desktop\Git\medicStockServer\Debug\bin\Debug\Debug.exe
+D:\Desktop\Git\medicStockServer\Debug\bin\Debug\Debug.pdb
+D:\Desktop\Git\medicStockServer\Debug\obj\Debug\Debug.csproj.CoreCompileInputs.cache
+D:\Desktop\Git\medicStockServer\Debug\obj\Debug\Debug.exe
+D:\Desktop\Git\medicStockServer\Debug\obj\Debug\Debug.pdb

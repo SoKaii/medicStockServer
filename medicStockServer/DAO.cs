@@ -14,7 +14,7 @@ namespace medicStockServer
    
     class DAO
     {
-        private string connexion_string = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Desktop\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA.mdf;Integrated Security=True"; // Création d'un string permettant d'ouvrir la dB avec des parametres prédéfinis 
+        private string connexion_string = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA.mdf;Integrated Security=True"; // Création d'un string permettant d'ouvrir la dB avec des parametres prédéfinis 
         
         List<List<string>> attributsMedic = new List<List<string>>(); // Création de la liste récupérant les attributs de chaque médicament
         List<List<string>> attributsUser = new List<List<string>>(); // Création de la liste récupérant les attributs de chaque utilisateur
@@ -81,14 +81,16 @@ namespace medicStockServer
 
         }
 
-        public List<List<List<string>>> getMedicament() // Méthode de récupération de tous les médicaments
+        public List<List<List<string>>> getMedicament() // Méthode de récupération de la liste globale médicaments
         {
             return medicaments;
         }
 
-        public List<List<List<string>>> getUser() // Méthode de récupération de tous les utilisateurs
+        public List<List<List<string>>> getUser() // Méthode de récupération de la liste globale utilisateurs
         {
             return users;
         }
+
+        
     }
 }
