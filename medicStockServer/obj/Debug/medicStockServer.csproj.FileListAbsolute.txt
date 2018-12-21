@@ -1,0 +1,9 @@
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA.mdf
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA_log.ldf
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\bin\Debug\medicStockServer.exe.config
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\bin\Debug\medicStockServer.exe
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\bin\Debug\medicStockServer.pdb
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csproj.CoreCompileInputs.cache
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.exe
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.pdb
+c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csprojAssemblyReference.cache

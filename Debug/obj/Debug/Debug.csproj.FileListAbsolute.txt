@@ -1,0 +1,6 @@
+c:\users\sokaii\source\repos\medicStockServer\Debug\bin\Debug\Debug.exe.config
+c:\users\sokaii\source\repos\medicStockServer\Debug\bin\Debug\Debug.exe
+c:\users\sokaii\source\repos\medicStockServer\Debug\bin\Debug\Debug.pdb
+c:\users\sokaii\source\repos\medicStockServer\Debug\obj\Debug\Debug.csproj.CoreCompileInputs.cache
+c:\users\sokaii\source\repos\medicStockServer\Debug\obj\Debug\Debug.exe
+c:\users\sokaii\source\repos\medicStockServer\Debug\obj\Debug\Debug.pdb
