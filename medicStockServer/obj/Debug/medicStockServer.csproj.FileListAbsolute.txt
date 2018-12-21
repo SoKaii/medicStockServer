@@ -16,3 +16,11 @@ D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csprojAs
 D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csproj.CoreCompileInputs.cache
 D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.exe
 D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.pdb
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA.mdf
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA_log.ldf
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\medicStockServer.exe.config
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\medicStockServer.exe
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\medicStockServer.pdb
+D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csproj.CoreCompileInputs.cache
+D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.exe
+D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.pdb
