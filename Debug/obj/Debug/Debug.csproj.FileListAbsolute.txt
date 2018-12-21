@@ -4,3 +4,10 @@ c:\users\sokaii\source\repos\medicStockServer\Debug\bin\Debug\Debug.pdb
 c:\users\sokaii\source\repos\medicStockServer\Debug\obj\Debug\Debug.csproj.CoreCompileInputs.cache
 c:\users\sokaii\source\repos\medicStockServer\Debug\obj\Debug\Debug.exe
 c:\users\sokaii\source\repos\medicStockServer\Debug\obj\Debug\Debug.pdb
+D:\Desktop\medicStockServer\Debug\bin\Debug\Debug.exe.config
+D:\Desktop\medicStockServer\Debug\bin\Debug\Debug.exe
+D:\Desktop\medicStockServer\Debug\bin\Debug\Debug.pdb
+D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.csprojAssemblyReference.cache
+D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.csproj.CoreCompileInputs.cache
+D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.exe
+D:\Desktop\medicStockServer\Debug\obj\Debug\Debug.pdb

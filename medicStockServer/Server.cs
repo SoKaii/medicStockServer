@@ -11,13 +11,18 @@ namespace medicStockServer
         public Server()
         {
             DAO dao = new DAO();
-            Console.WriteLine("--------------------------------------------------MEDICAMENTS--------------------------------------------------");
-            print_Data(dao.getMedicament());
-            Console.WriteLine("--------------------------------------------------USERS--------------------------------------------------");
-            print_Data(dao.getUser());
+            print_dB(dao);
         }
 
-        public void print_Data(List<List<List<string>>> dataList)
+        public void print_dB(DAO dao)
+        {
+            Console.WriteLine("--------------------------------------------------MEDICAMENTS--------------------------------------------------");
+            print_dBTable(dao.getMedicament());
+            Console.WriteLine("--------------------------------------------------USERS--------------------------------------------------");
+            print_dBTable(dao.getUser());
+        }
+
+        public void print_dBTable(List<List<List<string>>> dataList)
         {
             int i = 0;
 

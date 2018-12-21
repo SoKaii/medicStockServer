@@ -7,3 +7,12 @@ c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicSt
 c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.exe
 c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.pdb
 c:\users\sokaii\source\repos\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csprojAssemblyReference.cache
+D:\Desktop\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA.mdf
+D:\Desktop\medicStockServer\medicStockServer\bin\Debug\DatabaseHIA_log.ldf
+D:\Desktop\medicStockServer\medicStockServer\bin\Debug\medicStockServer.exe.config
+D:\Desktop\medicStockServer\medicStockServer\bin\Debug\medicStockServer.exe
+D:\Desktop\medicStockServer\medicStockServer\bin\Debug\medicStockServer.pdb
+D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csprojAssemblyReference.cache
+D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csproj.CoreCompileInputs.cache
+D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.exe
+D:\Desktop\medicStockServer\medicStockServer\obj\Debug\medicStockServer.pdb
