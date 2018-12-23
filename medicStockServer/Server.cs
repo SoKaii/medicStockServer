@@ -14,6 +14,7 @@ namespace medicStockServer
     {
         List<List<List<string>>> medicList = new List<List<List<string>>>(); // Création d'une liste qui stockera toutes les données médicaments récupérées de la dB
         List<List<List<string>>> userList = new List<List<List<string>>>(); // Création d'une liste qui stockera toutes les données user récupérées de la dB
+        string dataString = null;
 
         Int32 port = 0; // Création d'un entier qui servira comme port de connexion au Server
         TcpListener ecoute = null; // Création d'une service d'écoute
@@ -63,50 +64,47 @@ namespace medicStockServer
                     {
                         using (StreamWriter writer = new StreamWriter(networkStream)) // Création d'un StreamWriter servant à écrire les réponses du serveur dans le Tcp 
                         {
-                            writer.AutoFlush = true; // Définit si le writer vide sa mémoire tampon entre chaque écriture 
-                            
-                            while (demande != "exit") // Tant que le client ne demande la fin du service
+                            writer.AutoFlush = true; // Définit si le writer vide sa mémoire tampon entre chaque écriture
+
+                            foreach (List<List<string>> subList in medicList) // Pour chaque List dans medicList
                             {
-                                demande = reader.ReadLine(); // Demande prend la valeur de ce que le Reader lit dans le Tcp 
-                                if (demande.ToLower().Equals("medic")) // Si la demande du client est "medic"
+                                foreach (List<string> subSubList in subList) // Pour chaque List qui est dans la List qui est dans medicList
                                 {
-                                    foreach (List<List<string>> subList in medicList) // Pour chaque List dans medicList
+                                    foreach (string data in subSubList) // Pour chaque string qui est dans la List qui est dans la List qui est dans la medicList 
                                     {
-                                        foreach (List<string> subSubList in subList) // Pour chaque List qui est dans la List qui est dans medicList
+                                        dataString = dataString + data.Trim() + ";"; // Le server envoi au client la string précedemment ciblé
+                                        i++; // Incrémentation de i 
+                                        if (i == 3) // Si i vaut 3
                                         {
-                                            foreach (string data in subSubList) // Pour chaque string qui est dans la List qui est dans la List qui est dans la medicList 
-                                            {
-                                                writer.WriteLine(data); // Le server envoi au client la string précedemment ciblé
-                                                i++; // Incrémentation de i 
-                                                if (i == 3) // Si i vaut 3
-                                                {
-                                                    writer.WriteLine("\n"); // Saut de ligne dans ce que renvoi le server 
-                                                    i = 0; // Remise à 0 de i 
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                else if (demande.ToLower().Equals("user")) // Sinon si la demande du client concerne les utilisateurs 
-                                {
-                                    foreach (List<List<string>> subList in userList) // Pour chaque List dans userList
-                                    {
-                                        foreach (List<string> subSubList in subList) // Pour chaque List qui est dans la List qui est dans userList
-                                        {
-                                            foreach (string data in subSubList) // Pour chaque string qui est dans la List qui est dans la List qui est dans la userList 
-                                            {
-                                                writer.WriteLine(data); // Le server envoi au client la string précedemment ciblé
-                                                i++; // Incrémentation de i 
-                                                if (i == 3) // Si i vaut 3
-                                                {
-                                                    writer.WriteLine("\n"); // Saut de ligne dans ce que renvoi le server 
-                                                    i = 0; // Remise à 0 de i 
-                                                }
-                                            }
+                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque médicament
+                                            i = 0; // Remise à 0 de i 
                                         }
                                     }
                                 }
                             }
+
+                            dataString = dataString + "%";
+
+                            foreach (List<List<string>> subList in userList) // Pour chaque List dans userList
+                            {
+                                foreach (List<string> subSubList in subList) // Pour chaque List qui est dans la List qui est dans userList
+                                {
+                                    foreach (string data in subSubList) // Pour chaque string qui est dans la List qui est dans la List qui est dans la userList 
+                                    {
+                                        dataString = dataString + data.Trim() + ";"; // Le server envoi au client la string précedemment ciblé
+                                        i++; // Incrémentation de i 
+                                        if (i == 3) // Si i vaut 3
+                                        {
+                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque user
+                                            i = 0; // Remise à 0 de i 
+                                        }
+                                    }
+                                }
+                            }
+
+                            dataString = dataString + "%" + "\n";
+
+                            writer.WriteLine(dataString);
                         }
                     }
                 }

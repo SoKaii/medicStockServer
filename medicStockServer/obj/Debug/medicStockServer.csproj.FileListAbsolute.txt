@@ -24,3 +24,4 @@ D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\medicStockServer.pdb
 D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csproj.CoreCompileInputs.cache
 D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.exe
 D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.pdb
+D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csprojAssemblyReference.cache
