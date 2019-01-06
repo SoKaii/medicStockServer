@@ -35,7 +35,7 @@ namespace medicStockServer
 
                 while (readerM.Read()) // Tant que le DataReader voit quelque chose ( Navigation sur chaque médicament de la dB)
                 {
-                    for (indexY = 0; indexY < 11; indexY++) // Pour chaque attribut du médicament ciblé
+                    for (indexY = 0; indexY < 12; indexY++) // Pour chaque attribut du médicament ciblé
                     {
                         attributsMedic.Add(new List<string> { readerM[indexY].GetType().ToString(), readerM.GetName(indexY), readerM[indexY].ToString() }); // Stockage dans la liste "attributs" du Type, du nom de champ et de la valeur du champ ciblé
                     }

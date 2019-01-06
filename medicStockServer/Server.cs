@@ -76,7 +76,7 @@ namespace medicStockServer
                                         i++; // Incrémentation de i 
                                         if (i == 3) // Si i vaut 3
                                         {
-                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque médicament
+                                            dataString = dataString + "\\"; // Ajout d'un délimiteur entre chaque médicament
                                             i = 0; // Remise à 0 de i 
                                         }
                                     }
@@ -95,7 +95,7 @@ namespace medicStockServer
                                         i++; // Incrémentation de i 
                                         if (i == 3) // Si i vaut 3
                                         {
-                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque user
+                                            dataString = dataString + "\\"; // Ajout d'un délimiteur entre chaque user
                                             i = 0; // Remise à 0 de i 
                                         }
                                     }
