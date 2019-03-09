@@ -12,25 +12,24 @@ namespace medicStockServer
 {
     class Server
     {
-        List<List<List<string>>> medicList = new List<List<List<string>>>(); // Création d'une liste qui stockera toutes les données médicaments récupérées de la dB
-        List<List<List<string>>> userList = new List<List<List<string>>>(); // Création d'une liste qui stockera toutes les données user récupérées de la dB
-        string dataString = null;
 
         Int32 port = 0; // Création d'un entier qui servira comme port de connexion au Server
         TcpListener ecoute = null; // Création d'une service d'écoute
         int i = 0; // Création d'un indice permettant de splitter l'envoi par attribut 
+        int x = 0; // Création d'un indice permettant de splitter l'envoi par attribut 
 
+        List<String> dataList = new List<String>();
+        String dataString;
         public Server(int p_port)
         {
             try
             {
                 DAO dao = new DAO(); // Instanciation d'une dao 
-                medicList = dao.getMedicament(); // Récupération des médicaments
-                userList = dao.getUser(); // Récupératioin des utilisateurs
-
+                dataList = dao.get_data();
                 port = p_port; // Assignation du port de connexion
             
-                ecoute = new TcpListener(IPAddress.Any, port); // Instanciation du service d'écoute 
+                ecoute = new TcpListener(IPAddress.Any, p_port); // Instanciation du service d'écoute 
+             
                 ecoute.Start(); // Lancement du service d'écoute
                 TcpClient tcpClient = null; // Création d'un client virtuel afin de gérer le threading
                 while (true) // Boucle d'écoute
@@ -66,44 +65,24 @@ namespace medicStockServer
                         {
                             writer.AutoFlush = true; // Définit si le writer vide sa mémoire tampon entre chaque écriture
 
-                            foreach (List<List<string>> subList in medicList) // Pour chaque List dans medicList
+                            foreach (String str in dataList) // Pour chaque List dans userList
                             {
-                                foreach (List<string> subSubList in subList) // Pour chaque List qui est dans la List qui est dans medicList
-                                {
-                                    foreach (string data in subSubList) // Pour chaque string qui est dans la List qui est dans la List qui est dans la medicList 
-                                    {
-                                        dataString = dataString + data.Trim() + ";"; // Le server envoi au client la string précedemment ciblé
+                             
+                                        dataString = dataString + str.Trim() + ";"; // Le server envoi au client la string précedemment ciblé
                                         i++; // Incrémentation de i 
+                                        x++;
                                         if (i == 3) // Si i vaut 3
                                         {
-                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque médicament
+                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque attributs
                                             i = 0; // Remise à 0 de i 
                                         }
-                                    }
-                                }
-                            }
-
-                            dataString = dataString + "%";
-
-                            foreach (List<List<string>> subList in userList) // Pour chaque List dans userList
-                            {
-                                foreach (List<string> subSubList in subList) // Pour chaque List qui est dans la List qui est dans userList
-                                {
-                                    foreach (string data in subSubList) // Pour chaque string qui est dans la List qui est dans la List qui est dans la userList 
-                                    {
-                                        dataString = dataString + data.Trim() + ";"; // Le server envoi au client la string précedemment ciblé
-                                        i++; // Incrémentation de i 
-                                        if (i == 3) // Si i vaut 3
+                                        if (x == 11) // Si i vaut 11
                                         {
-                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque user
+                                            dataString = dataString + "\nµ"; // Ajout d'un délimiteur entre chaque instance de la classe
                                             i = 0; // Remise à 0 de i 
                                         }
-                                    }
-                                }
                             }
-
-                            dataString = dataString + "%" + "\n";
-
+                            dataString = dataString + "%"; // Délimiteur entre les classes 
                             writer.WriteLine(dataString);
                         }
                     }
