@@ -30,7 +30,7 @@ namespace medicStockServer
                     MySqlDataReader reader = request.ExecuteReader(); // Création du DataReader que l'on configure avec la requête precedement déclarée
                     while (reader.Read()) // Pour chaque enregistrement de l'objet ciblé 
                     {
-                        for (indexY = 0; indexY < reader.FieldCount -1; indexY++) // Pour chaque attribut de l'enregistrement ciblé
+                        for (indexY = 0; indexY < reader.FieldCount; indexY++) // Pour chaque attribut de l'enregistrement ciblé
                         {
                             dataList.Add(reader[indexY].ToString() + ","); // Stockage dans la liste "dataList" du tout le contenu de la base de données en String
                         }
@@ -48,62 +48,14 @@ namespace medicStockServer
             }
         }
 
-        public List<String> get_data() // Methode de récuperation de la liste contenant toute la dB
+        public List<String> getData() // Methode de récuperation de la liste contenant toute la dB
         {
             return dataList;
         }
 
-        public void createMedic(String p_idMedic, String p_nom, String p_categorie, String p_substanceActive,
-        String p_formeGalenique, int p_dosage, String p_localisation, int p_elevation) // Méthode de création d'un médicament dans la base de données
+        public void update(List<String> commandsList)
         {
-     
-            try
-            {
-                
-                string connString = "server = localhost; database = hia; uid = medicstock; password = azerty"; // Création de la chaine de connexion 
-                MySqlConnection MyConnection = new MySqlConnection(connString); // Création de la connexion avec la chaine 
 
-                MySqlCommand MyCommand = MyConnection.CreateCommand(); // Initialisation de la commande SQL
-                MyCommand.CommandText = "INSERT INTO hia.medicament(idMedicament,nom,categorie,substanceActive,formeGalenique,dosage,Localisation,Elevation) VALUES " +
-                    "(@idMedicament, @nom, @categorie, @substanceActive, @formeGalenique, @dosage, @Localisation, @Elevation)";
-                MyCommand.Parameters.AddWithValue("@idMedicament", p_idMedic);
-                MyCommand.Parameters.AddWithValue("@nom", p_nom);
-                MyCommand.Parameters.AddWithValue("@categorie", p_categorie);
-                MyCommand.Parameters.AddWithValue("@substanceActive", p_substanceActive);
-                MyCommand.Parameters.AddWithValue("@formeGalenique", p_formeGalenique);
-                MyCommand.Parameters.AddWithValue("@dosage", p_dosage);
-                MyCommand.Parameters.AddWithValue("@Localisation", p_localisation);
-                MyCommand.Parameters.AddWithValue("@Elevation", p_elevation);
-
-                MyConnection.Open();
-                MyCommand.ExecuteNonQuery();
-                MyConnection.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-        }
-
-        public void setMedicStock(String p_medicName, int p_quantite)
-        {
-            string connString = "server = localhost; database = hia; uid = medicstock; password = azerty"; // Création de la chaine de connexion 
-            try
-            {
-                MySqlConnection MyConnection = new MySqlConnection(connString); // Création de la connexion avec la chaine 
-
-                MySqlCommand MyCommand = MyConnection.CreateCommand();
-                MyCommand.CommandText = "UPDATE hia.boitemedic SET stock = " + p_quantite + " WHERE boitemedic.idMedicament = medicament.idMedicament AND medicament.nom = " + p_medicName;
-                MyCommand.ExecuteNonQuery();
-
-                MyConnection.Close();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
         }
     }
 }

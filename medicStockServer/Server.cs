@@ -25,7 +25,7 @@ namespace medicStockServer
             try
             {
                 DAO dao = new DAO(); // Instanciation d'une dao 
-                dataList = dao.get_data();
+                dataList = dao.getData();
                 port = p_port; // Assignation du port de connexion
             
                 ecoute = new TcpListener(IPAddress.Any, p_port); // Instanciation du service d'écoute 
@@ -67,22 +67,9 @@ namespace medicStockServer
 
                             foreach (String str in dataList) // Pour chaque List dans userList
                             {
-                             
-                                        dataString = dataString + str.Trim() + ";"; // Le server envoi au client la string précedemment ciblé
-                                        i++; // Incrémentation de i 
-                                        x++;
-                                        if (i == 3) // Si i vaut 3
-                                        {
-                                            dataString = dataString + "/"; // Ajout d'un délimiteur entre chaque attributs
-                                            i = 0; // Remise à 0 de i 
-                                        }
-                                        if (x == 11) // Si i vaut 11
-                                        {
-                                            dataString = dataString + "\nµ"; // Ajout d'un délimiteur entre chaque instance de la classe
-                                            i = 0; // Remise à 0 de i 
-                                        }
+                                dataString = dataString + str; // Le server envoi au client la string précedemment ciblé
                             }
-                            dataString = dataString + "%"; // Délimiteur entre les classes 
+                            Console.WriteLine(dataString);
                             writer.WriteLine(dataString);
                         }
                     }

@@ -10,10 +10,8 @@ namespace medicStockServer
     { 
          static void Main()
          {
-            //Server server = new Server(22);
-            DAO dao = new DAO();
-            dao.setMedicStock("Doliprane", 63);
-           Console.ReadLine();
+            Server server = new Server(22);
+            System.Threading.Thread.Sleep(10000);
          }
     }
 }
