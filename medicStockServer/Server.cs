@@ -20,6 +20,7 @@ namespace medicStockServer
 
         List<String> dataList = new List<String>();
         String dataString;
+        List<String> listUpdateCommands = new List<String>();
         public Server(int p_port)
         {
             try
@@ -51,8 +52,9 @@ namespace medicStockServer
 
         public void Service(Object infos)
         {
-            String demande = null; // Création d'une string qui servira à stocker les demandes clients
+            String demande = "No answer"; // Création d'une string qui servira à stocker les demandes clients
             TcpClient client = infos as TcpClient; // Création du client qui communiquera avec le serveur
+            dataString = null;
 
             try
             {
@@ -69,8 +71,17 @@ namespace medicStockServer
                             {
                                 dataString = dataString + str; // Le server envoi au client la string précedemment ciblé
                             }
-                            Console.WriteLine(dataString);
                             writer.WriteLine(dataString);
+                          
+                            while (true)
+                            {
+                                demande = reader.ReadLine();
+
+                                if (demande != "No answer")
+                                {
+                                    break;
+                                }
+                            }
                         }
                     }
                 }
