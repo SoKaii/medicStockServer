@@ -20,7 +20,7 @@ namespace medicStockServer
             try
             {
                 int indexY = 0;
-                List<String> cmdList = ConfigurationManager.AppSettings["allCommands"].Split(';').ToList(); // Configuration de la liste de requete en fonction des requetes situées dans le App.Config
+                List<String> cmdList = "Select * from user;Select* from interaction;Select* from lotmedic;Select* from medicament;".Split(';').ToList(); // Configuration de la liste de requete en fonction des requetes situées dans le App.Config
 
                 for (int i =0; i<=cmdList.Count() -1; i++) // Pour chaque table de la dB
                 {

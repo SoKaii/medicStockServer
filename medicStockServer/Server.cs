@@ -35,7 +35,7 @@ namespace medicStockServer
                 TcpClient tcpClient = null; // Création d'un client virtuel afin de gérer le threading
                 while (true) // Boucle d'écoute
                 {
-                    Console.WriteLine("En attente d'un client"); // Affichage d'un message d'attente
+                     // Affichage d'un message d'attente
                     tcpClient = ecoute.AcceptTcpClient(); // Acceptation du client 
                     ThreadPool.QueueUserWorkItem(Service, tcpClient); // Création d'un thread pour le client précedemment accepté 
                 }
@@ -52,13 +52,14 @@ namespace medicStockServer
 
         public void Service(Object infos)
         {
-            String demande = "No answer"; // Création d'une string qui servira à stocker les demandes clients
+            String demande = null ; // Création d'une string qui servira à stocker les demandes clients
             TcpClient client = infos as TcpClient; // Création du client qui communiquera avec le serveur
             dataString = null;
 
             try
             {
                 Console.WriteLine("Client connected"); // Message confirmant la connexion du client au service 
+                Console.WriteLine("\nEn attente d'un client.....");
                 using (NetworkStream networkStream = client.GetStream()) // Utilisant la laison entre le client et le serveur 
                 {
                     using (StreamReader reader = new StreamReader(networkStream)) // Création d'un StreamReader servant à lire les demandes du client dans le Tcp
@@ -72,22 +73,22 @@ namespace medicStockServer
                                 dataString = dataString + str; // Le server envoi au client la string précedemment ciblé
                             }
                             writer.WriteLine(dataString);
-                          
-                            while (true)
+                            
+                            while(true)
                             {
                                 demande = reader.ReadLine();
-
-                                if (demande != "No answer")
-                                {
-                                    break;
-                                }
+                                Console.WriteLine(demande);
+                                break;
+                                
                             }
+                                
                         }
                     }
                 }
             }
             catch (Exception e) // Si une erreur est renvoyé dans l'éxécution du code
             {
+               
                 Console.WriteLine(e.Message); // Affichage du message d'erreur 
             }
             finally
