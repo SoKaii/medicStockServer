@@ -39,3 +39,7 @@ C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Debug\MySq
 C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Debug\Google.Protobuf.xml
 C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Debug\MySql.Data.xml
 C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Debug\medicStockServer.csproj.CopyComplete
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\Google.Protobuf.dll
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\MySql.Data.dll
+D:\Desktop\Git\medicStockServer\medicStockServer\bin\Debug\MySql.Data.xml
+D:\Desktop\Git\medicStockServer\medicStockServer\obj\Debug\medicStockServer.csproj.CopyComplete

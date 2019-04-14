@@ -24,7 +24,7 @@ namespace medicStockServer
 
                 for (int i =0; i<=cmdList.Count() -1; i++) // Pour chaque table de la dB
                 {
-                    MySqlConnection MyConnection = new MySqlConnection("server = localhost; database = hia; uid = medicstock; password = azerty"); // Configuration de la connexion à la base de données
+                    MySqlConnection MyConnection = new MySqlConnection("server = localhost; database = hia; uid = root; password = admin"); // Configuration de la connexion à la base de données
                     MySqlCommand request = new MySqlCommand(cmdList[i],MyConnection); // Configuration de la requete SQL en fonction des requetes situées dans la liste de requetes
                     MyConnection.Open(); // Ouverture de la connexion
                     MySqlDataReader reader = request.ExecuteReader(); // Création du DataReader que l'on configure avec la requête precedement déclarée

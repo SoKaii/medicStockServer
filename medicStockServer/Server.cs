@@ -15,9 +15,7 @@ namespace medicStockServer
 
         Int32 port = 0; // Création d'un entier qui servira comme port de connexion au Server
         TcpListener ecoute = null; // Création d'une service d'écoute
-        int i = 0; // Création d'un indice permettant de splitter l'envoi par attribut 
-        int x = 0; // Création d'un indice permettant de splitter l'envoi par attribut 
-
+        Random rnd = new Random();
         List<String> dataList = new List<String>();
         String dataString;
         List<String> listUpdateCommands = new List<String>();
@@ -58,8 +56,9 @@ namespace medicStockServer
 
             try
             {
-                Console.WriteLine("Client connected"); // Message confirmant la connexion du client au service 
-                Console.WriteLine("\nEn attente d'un client.....");
+                int clientNumber = rnd.Next(1, 999);
+                Console.WriteLine("Client n° " + clientNumber + " has connected"); // Message confirmant la connexion du client au service 
+                Console.WriteLine("\nWaiting for a client.....\n");
                 using (NetworkStream networkStream = client.GetStream()) // Utilisant la laison entre le client et le serveur 
                 {
                     using (StreamReader reader = new StreamReader(networkStream)) // Création d'un StreamReader servant à lire les demandes du client dans le Tcp
@@ -79,16 +78,14 @@ namespace medicStockServer
                                 demande = reader.ReadLine();
                                 Console.WriteLine(demande);
                                 break;
-                                
                             }
-                                
+                            Console.WriteLine("\nClient n° " + clientNumber + " has disconnected\n"); // Message confirmant la connexion du client au service 
                         }
                     }
                 }
             }
             catch (Exception e) // Si une erreur est renvoyé dans l'éxécution du code
             {
-               
                 Console.WriteLine(e.Message); // Affichage du message d'erreur 
             }
             finally
