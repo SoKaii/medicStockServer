@@ -12,7 +12,7 @@ namespace medicStockServer
 {
     class Server
     {
-
+        DAO dao;
         Int32 port = 0; // Création d'un entier qui servira comme port de connexion au Server
         TcpListener ecoute = null; // Création d'une service d'écoute
         Random rnd = new Random();
@@ -23,7 +23,7 @@ namespace medicStockServer
         {
             try
             {
-                DAO dao = new DAO(); // Instanciation d'une dao 
+                dao = new DAO(); // Instanciation d'une dao 
                 dataList = dao.getData();
                 port = p_port; // Assignation du port de connexion
             
@@ -58,14 +58,14 @@ namespace medicStockServer
             {
                 int clientNumber = rnd.Next(1, 999);
                 Console.WriteLine("Client n° " + clientNumber + " has connected"); // Message confirmant la connexion du client au service 
-                Console.WriteLine("\nWaiting for a client.....\n");
+                Console.WriteLine("Waiting for an other client.....");
                 using (NetworkStream networkStream = client.GetStream()) // Utilisant la laison entre le client et le serveur 
                 {
                     using (StreamReader reader = new StreamReader(networkStream)) // Création d'un StreamReader servant à lire les demandes du client dans le Tcp
                     {
                         using (StreamWriter writer = new StreamWriter(networkStream)) // Création d'un StreamWriter servant à écrire les réponses du serveur dans le Tcp 
                         {
-                            writer.AutoFlush = true; // Définit si le writer vide sa mémoire tampon entre chaque écriture
+                            writer.AutoFlush = true; // Définit si le writer vide sa mémoire tampon entre chaque écriture 
 
                             foreach (String str in dataList) // Pour chaque List dans userList
                             {
@@ -76,10 +76,10 @@ namespace medicStockServer
                             while(true)
                             {
                                 demande = reader.ReadLine();
-                                Console.WriteLine(demande);
+                                dao.update(demande.Split(';').ToList());
                                 break;
                             }
-                            Console.WriteLine("\nClient n° " + clientNumber + " has disconnected\n"); // Message confirmant la connexion du client au service 
+                            Console.WriteLine("Client n° " + clientNumber + " has disconnected\n"); // Message confirmant la connexion du client au service 
                         }
                     }
                 }
