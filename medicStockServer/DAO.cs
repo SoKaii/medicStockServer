@@ -22,12 +22,16 @@ namespace medicStockServer
             try
             {
                 int indexY = 0;
-                List<String> cmdList = "Select * from user;Select* from interaction;Select* from lotmedic;Select* from medicament;".Split(';').ToList(); // Configuration de la liste de requete en fonction des requetes situées dans le App.Config
+                List<String> cmdList = "Select * from user;Select* from interaction;Select* from lotmedic;Select* from medicament".Split(';').ToList(); // Configuration de la liste de requete en fonction des requetes situées dans le App.Config
 
-                for (int i =0; i<=cmdList.Count() -1; i++) // Pour chaque table de la dB
+                for (int i =0; i<=cmdList.Count() - 1; i++) // Pour chaque table de la dB
                 {
-                    MyConnection = new MySqlConnection("server = localhost; database = hia; uid = medicstock; password = azerty"); // Configuration de la connexion à la base de données
-                    MySqlCommand request = new MySqlCommand(cmdList[i],MyConnection); // Configuration de la requete SQL en fonction des requetes situées dans la liste de requetes
+                    MyConnection = new MySqlConnection("server = localhost; database = hia; uid = root; password = admin"); // Configuration de la connexion à la base de données selon la connectionString
+                    MySqlCommand request = new MySqlCommand(); // Configuration de la requete SQL en fonction des requetes situées dans la liste de requetes cmdList
+                    request.Connection = MyConnection;
+                    request.CommandType = CommandType.Text;
+                    request.CommandText = cmdList[i];
+
                     MyConnection.Open(); // Ouverture de la connexion
                     MySqlDataReader reader = request.ExecuteReader(); // Création du DataReader que l'on configure avec la requête precedement déclarée
                     while (reader.Read()) // Pour chaque enregistrement de l'objet ciblé 
@@ -61,11 +65,17 @@ namespace medicStockServer
             {
                 foreach (String command in commandsList)
                 {
-                    MyConnection = new MySqlConnection("server = localhost; database = hia; uid = medicstock; password = azerty"); // Configuration de la connexion à la base de données
-                    MySqlCommand sqlCommand = new MySqlCommand(command, MyConnection);
-                    MyConnection.Open();
-                    sqlCommand.ExecuteNonQuery();
-                    MyConnection.Close();
+                    if (command.Length > 0)
+                    {
+                        MyConnection = new MySqlConnection("server = localhost; database = hia; uid = medicstock; password = azerty"); // Configuration de la connexion à la base de données
+                        MySqlCommand sqlCommand = new MySqlCommand();
+                        sqlCommand.CommandType = CommandType.Text;
+                        sqlCommand.CommandText = command;
+                        sqlCommand.Connection = MyConnection;
+                        MyConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        MyConnection.Close();
+                    }
                 }
             }
             catch (Exception e)
