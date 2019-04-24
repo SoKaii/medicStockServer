@@ -10,7 +10,7 @@ namespace medicStockServer
     { 
          static void Main()
          {
-            Server server = new Server(22);
+            Server server = new Server(6456);
             System.Threading.Thread.Sleep(10000);
          }
     }
