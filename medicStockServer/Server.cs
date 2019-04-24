@@ -33,7 +33,6 @@ namespace medicStockServer
                 TcpClient tcpClient = null; // Création d'un client virtuel afin de gérer le threading
                 while (true) // Boucle d'écoute
                 {
-                     // Affichage d'un message d'attente
                     tcpClient = ecoute.AcceptTcpClient(); // Acceptation du client 
                     ThreadPool.QueueUserWorkItem(Service, tcpClient); // Création d'un thread pour le client précedemment accepté 
                 }
@@ -77,6 +76,7 @@ namespace medicStockServer
                             {
                                 demande = reader.ReadLine();
                                 dao.update(demande.Split(';').ToList());
+                                updateServer();
                                 break;
                             }
                             Console.WriteLine("Client n° " + clientNumber + " has disconnected\n"); // Message confirmant la connexion du client au service 
@@ -90,6 +90,19 @@ namespace medicStockServer
             }
             finally
             {}
+        }
+
+        public void updateServer()
+        {
+            try
+            {
+                dao = new DAO(); // Instanciation d'une dao 
+                dataList = dao.getData();
+            }
+            catch (Exception ex) // Si l'éxécution rencontre un problème 
+            {
+                Console.WriteLine(ex.Message); // Affichage du message d'érreur renvoyé 
+            }
         }
     }
 }

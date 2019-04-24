@@ -1,0 +1,14 @@
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\DatabaseHIA.mdf
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\DatabaseHIA_log.ldf
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\medicStockServer.exe.config
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\medicStockServer.exe
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\medicStockServer.pdb
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\Google.Protobuf.dll
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\MySql.Data.dll
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\Google.Protobuf.xml
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\bin\Release\MySql.Data.xml
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.csproj.CoreCompileInputs.cache
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.csproj.CopyComplete
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.exe
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.pdb
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.csprojAssemblyReference.cache
