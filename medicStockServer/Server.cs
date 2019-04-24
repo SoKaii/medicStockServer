@@ -33,6 +33,7 @@ namespace medicStockServer
                 TcpClient tcpClient = null; // Création d'un client virtuel afin de gérer le threading
                 while (true) // Boucle d'écoute
                 {
+                     // Affichage d'un message d'attente
                     tcpClient = ecoute.AcceptTcpClient(); // Acceptation du client 
                     ThreadPool.QueueUserWorkItem(Service, tcpClient); // Création d'un thread pour le client précedemment accepté 
                 }
