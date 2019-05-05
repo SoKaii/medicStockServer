@@ -76,6 +76,7 @@ namespace medicStockServer
                             while(true)
                             {
                                 demande = reader.ReadLine();
+                                Console.WriteLine(demande);
                                 dao.update(demande.Split(';').ToList());
                                 updateServer();
                                 break;
