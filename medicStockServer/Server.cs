@@ -69,19 +69,21 @@ namespace medicStockServer
 
                             foreach (String str in dataList) // Pour chaque List dans userList
                             {
-                                dataString = dataString + str; // Le server envoi au client la string précedemment ciblé
+                                dataString = dataString + str; // Le server envoi au client la string précedemment ciblée
                             }
                             writer.WriteLine(dataString);
                             
                             while(true)
                             {
                                 demande = reader.ReadLine();
+                                if (demande == "-1")
+                                    break;
                                 Console.WriteLine(demande);
                                 dao.update(demande.Split(';').ToList());
                                 updateServer();
                                 break;
                             }
-                            Console.WriteLine("Client n° " + clientNumber + " has disconnected\n"); // Message confirmant la connexion du client au service 
+                            Console.WriteLine("Client n° " + clientNumber + " has disconnected\n"); // Message confirmant la deconnexion du client
                         }
                     }
                 }
