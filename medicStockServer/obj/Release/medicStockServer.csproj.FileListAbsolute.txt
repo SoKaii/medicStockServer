@@ -11,3 +11,4 @@ C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\me
 C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.csproj.CopyComplete
 C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.exe
 C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.pdb
+C:\Users\SoKaii\source\repos\medicStockServerGit\medicStockServer\obj\Release\medicStockServer.csprojAssemblyReference.cache
